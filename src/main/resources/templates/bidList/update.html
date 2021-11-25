@@ -5,21 +5,38 @@
 <meta charset="utf-8"/>
 <title>Home</title>
 <link rel="stylesheet" href="../../css/bootstrap.min.css" >
+<link rel="stylesheet" href="../../css/main.css" >
 </head>
 <body>
-<div class="container">
-	<div class="row">
+
+	<div class="create-update-form-container">
 		<h2>Update Bid</h2>
-	</div>
-
-	<div class="row">
-		<form action="#" th:action="@{/bidList/update/{id}(id=${bidList.bidListId})}" th:object="${bidList}" method="post" class="form-horizontal" style="width: 100%">
-			<!--
-			TODO: Create a form to edit the values of Bid, there are 2 buttons: Update data and Cancel to the list Bid
-			 -->
-		</form>
-	</div>
-
+    <form th:action="@{/bidList/update/{id}(id=${bidList.bidListId})}" th:object="${bList}" method="post">
+        <div class="form-group">
+          <input type="hidden" name="bidListId" class="form-control" th:value=${bidList.bidListId}>
+          <label for="formGroupExampleInput">Account</label>
+          <input type="text" name="account" class="form-control" th:value="${bidList.account}" placeholder="Account">
+          <div th:if="${account}">
+            <p th:text="${account}"  style="color: rgb(206, 37, 37)"></p>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="formGroupExampleInput2">Type</label>
+          <input type="text" name="type" class="form-control" th:value="${bidList.type}" placeholder="Type">
+          <div th:if="${type}">
+            <p th:text="${type}"  style="color: rgb(206, 37, 37)"></p>
+          </div>
+        </div>
+        <div class="form-group">
+            <label for="formGroupExampleInput2">Bid Quantity</label>
+            <input type="number" step="0.01" name="bidQuantity" class="form-control" th:value="${bidList.bidQuantity}" placeholder="Bid Quantity">
+            <div th:if="${bidQuantity}">
+              <p th:text="${bidQuantity}"  style="color: rgb(206, 37, 37)"></p>
+            </div>
+          </div>
+        <a class="btn btn-danger" href="/bidList/list" role="button">Cancel</a>
+        <button type="submit" class="btn btn-primary">Update BidList</button>
+    </form>
 </div>
 </body>
 </html>

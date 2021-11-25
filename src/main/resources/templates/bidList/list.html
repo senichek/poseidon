@@ -37,6 +37,19 @@
 				</tr>
 			</thead>
 			<tbody>
+				<tr th:each="bList: ${bidList}">
+				  <td th:text="${bList.bidListId}">
+				  <td th:text="${bList.account}">
+				  <td th:text="${bList.type}">
+				  <td th:text="${bList.bidQuantity}">
+				  <td> <a th:href="@{/bidList/update/{pathParam}(pathParam=${bList.bidListId})}" class="btn btn-link" role="button" aria-pressed="true">Edit</a> |  
+					   <a th:href="@{/bidList/delete/{pathParam}(pathParam=${bList.bidListId})}" class="btn btn-link" role="button" aria-pressed="true">Delete</a>
+				  </td>
+				  <!-- <a th:href="@{/connections/{pathParam}(pathParam=${conns.id})}" -->
+					<!-- ("/bidList/delete/{id}") -->
+			  </tr>
+			  </tbody>
+			<tbody>
 				<!-- TODO: Show all Bids to the table, the Action column will have Edit & Delete buttons -->
 			</tbody>
 		</table>
