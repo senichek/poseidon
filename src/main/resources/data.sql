@@ -70,25 +70,25 @@ CREATE TABLE CurvePoint (
 );
 
 CREATE TABLE Rating (
-  Id tinyint(4) NOT NULL AUTO_INCREMENT,
-  moodysRating VARCHAR(125),
-  sandPRating VARCHAR(125),
-  fitchRating VARCHAR(125),
-  orderNumber tinyint,
+  id tinyint(4) NOT NULL AUTO_INCREMENT,
+  moodys_rating VARCHAR(125),
+  sandp_rating VARCHAR(125),
+  fitch_rating VARCHAR(125),
+  order_number tinyint,
 
-  PRIMARY KEY (Id)
+  PRIMARY KEY (id)
 );
 
 CREATE TABLE RuleName (
-  Id tinyint(4) NOT NULL AUTO_INCREMENT,
+  id tinyint(4) NOT NULL AUTO_INCREMENT,
   name VARCHAR(125),
   description VARCHAR(125),
   json VARCHAR(125),
   template VARCHAR(512),
-  sqlStr VARCHAR(125),
-  sqlPart VARCHAR(125),
+  sql_str VARCHAR(125),
+  sql_part VARCHAR(125),
 
-  PRIMARY KEY (Id)
+  PRIMARY KEY (id)
 );
 
 CREATE TABLE Users (

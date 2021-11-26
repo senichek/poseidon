@@ -15,14 +15,14 @@
         <div class="form-group">
           <input type="hidden" name="id" class="form-control" th:value=${curvePoint.id}>
           <label for="formGroupExampleInput">Curve Id</label>
-          <input type="text" name="curveId" class="form-control" th:value="${curvePoint.curveId}" placeholder="Curve Id">
+          <input type="number" name="curveId" class="form-control" th:value="${curvePoint.curveId}" placeholder="Curve Id">
           <div th:if="${curveId}">
             <p th:text="${curveId}"  style="color: rgb(206, 37, 37)"></p>
           </div>
         </div>
         <div class="form-group">
           <label for="formGroupExampleInput2">Term</label>
-          <input type="text" name="term" class="form-control" th:value="${curvePoint.term}" placeholder="Term">
+          <input type="number" step="0.01" name="term" class="form-control" th:value="${curvePoint.term}" placeholder="Term">
           <div th:if="${term}">
             <p th:text="${term}"  style="color: rgb(206, 37, 37)"></p>
           </div>
