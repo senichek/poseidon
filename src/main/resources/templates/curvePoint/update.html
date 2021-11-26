@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	  xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8"/>
+<title>Home</title>
+<link rel="stylesheet" href="../../css/bootstrap.min.css" >
+<link rel="stylesheet" href="../../css/main.css" >
+</head>
+<body>
+
+	<div class="create-update-form-container">
+		<h2>Update Curve Point</h2>
+    <form th:action="@{/curvePoint/update/{id}(id=${curvePoint.id})}" th:object="${courvePoint}" method="post">
+        <div class="form-group">
+          <input type="hidden" name="id" class="form-control" th:value=${curvePoint.id}>
+          <label for="formGroupExampleInput">Curve Id</label>
+          <input type="text" name="curveId" class="form-control" th:value="${curvePoint.curveId}" placeholder="Curve Id">
+          <div th:if="${curveId}">
+            <p th:text="${curveId}"  style="color: rgb(206, 37, 37)"></p>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="formGroupExampleInput2">Term</label>
+          <input type="text" name="term" class="form-control" th:value="${curvePoint.term}" placeholder="Term">
+          <div th:if="${term}">
+            <p th:text="${term}"  style="color: rgb(206, 37, 37)"></p>
+          </div>
+        </div>
+        <div class="form-group">
+            <label for="formGroupExampleInput2">Value</label>
+            <input type="number" step="0.01" name="value" class="form-control" th:value="${curvePoint.value}" placeholder="Value">
+            <div th:if="${value}">
+              <p th:text="${value}"  style="color: rgb(206, 37, 37)"></p>
+            </div>
+          </div>
+        <a class="btn btn-danger" href="/curvePoint/list" role="button">Cancel</a>
+        <button type="submit" class="btn btn-primary">Update CurvePoint</button>
+    </form>
+</div>
+</body>
+</html>

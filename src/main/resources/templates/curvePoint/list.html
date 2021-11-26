@@ -23,27 +23,27 @@
 			</form>
 		</div>
 	</div>
-	<div class="row"><h2>Bid List</h2></div>
+	<div class="row"><h2>Curve Point List</h2></div>
 	<div class="row">
-		<a href="/bidList/add" class="btn btn-primary btn-sm">Add New</a>
+		<a href="/curvePoint/add" class="btn btn-primary btn-sm">Add New</a>
 		<table class="table table-bordered">
 			<thead>
 				<tr>
 					<th>Id</th>
-					<th>Account</th>
-					<th>Type</th>
-					<th>Bid Quantity</th>
+					<th>CurvePointId</th>
+					<th>Term</th>
+					<th>Value</th>
 					<th>Action</th>
 				</tr>
 			</thead>
 			<tbody>
-				<tr th:each="bList: ${bidList}">
-				  <td th:text="${bList.bidListId}">
-				  <td th:text="${bList.account}">
-				  <td th:text="${bList.type}">
-				  <td th:text="${bList.bidQuantity}">
-				  <td> <a th:href="@{/bidList/update/{pathParam}(pathParam=${bList.bidListId})}" class="btn btn-link" role="button" aria-pressed="true">Edit</a> |  
-					   <a th:href="@{/bidList/delete/{pathParam}(pathParam=${bList.bidListId})}" class="btn btn-link" role="button" aria-pressed="true">Delete</a>
+				<tr th:each="cPoint: ${curvePoints}">
+				  <td th:text="${cPoint.id}">
+				  <td th:text="${cPoint.curveId}">
+				  <td th:text="${cPoint.term}">
+				  <td th:text="${cPoint.value}">
+				  <td> <a th:href="@{/curvePoint/update/{pathParam}(pathParam=${cPoint.id})}" class="btn btn-link" role="button" aria-pressed="true">Edit</a> |  
+					   <a th:href="@{/curvePoint/delete/{pathParam}(pathParam=${cPoint.id})}" class="btn btn-link" role="button" aria-pressed="true">Delete</a>
 				  </td>
 			  </tr>
 			  </tbody>

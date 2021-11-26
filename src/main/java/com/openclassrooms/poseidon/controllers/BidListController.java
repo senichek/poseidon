@@ -16,13 +16,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class BidListController {
-    // TODO: Inject Bid service
+    
     @Autowired
     BidListService bidListService;
 
     @RequestMapping("/bidList/list")
     public String home(Model model) {
-        // TODO: call service find all bids to show to the view
         model.addAttribute("bidList", bidListService.getAll());
         return "bidList/list";
     }

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	  xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8"/>
+<title>Home</title>
+<link rel="stylesheet" href="../../css/bootstrap.min.css" >
+<link rel="stylesheet" href="../../css/main.css" >
+</head>
+<body>
+<div class="create-update-form-container">
+		<h2>Add New Curve Point</h2>
+    <form th:action="@{/curvePoint/validate}" th:object="${curvePoint}" method="post">
+        <div class="form-group">
+          <label for="formGroupExampleInput">Curve Id</label>
+          <input type="number" name="curveId" class="form-control" placeholder="Curve Id">
+          <div th:if="${curveId}">
+            <p th:text="${curveId}"  style="color: rgb(206, 37, 37)"></p>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="formGroupExampleInput2">Term</label>
+          <input type="number" step="0.01" name="term" class="form-control" placeholder="Type">
+          <div th:if="${term}">
+            <p th:text="${term}"  style="color: rgb(206, 37, 37)"></p>
+          </div>
+        </div>
+        <div class="form-group">
+            <label for="formGroupExampleInput2">Value</label>
+            <input type="number" step="0.01" name="value" class="form-control" placeholder="Value">
+            <div th:if="${value}">
+              <p th:text="${value}"  style="color: rgb(206, 37, 37)"></p>
+            </div>
+        </div>
+        <a class="btn btn-danger" href="/curvePoint/list" role="button">Cancel</a>
+        <button type="submit" class="btn btn-primary">Add CurvePoint</button>
+    </form>
+</div>
+</body>
+</html>
