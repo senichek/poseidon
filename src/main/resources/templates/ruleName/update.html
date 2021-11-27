@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	  xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8"/>
+<title>Home</title>
+<link rel="stylesheet" href="../../css/bootstrap.min.css" >
+<link rel="stylesheet" href="../../css/main.css" >
+</head>
+<body>
+
+	<div class="create-update-form-container">
+		<h2>Update Rule Name</h2>
+    <form th:action="@{/ruleName/update/{id}(id=${ruleName.id})}" th:object="${ruleName}" method="post">
+      <div class="form-group">
+        <label for="formGroupExampleInput">Name</label>
+        <input type="text" name="name" class="form-control" th:value="${ruleName.name}" placeholder="Name">
+        <div th:if="${name}">
+          <p th:text="${name}"  style="color: rgb(206, 37, 37)"></p>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="formGroupExampleInput2">Description</label>
+        <input type="text" name="description" class="form-control" th:value="${ruleName.description}" placeholder="Description">
+        <div th:if="${description}">
+          <p th:text="${description}"  style="color: rgb(206, 37, 37)"></p>
+        </div>
+      </div>
+      <div class="form-group">
+          <label for="formGroupExampleInput2">Json</label>
+          <input type="text" name="json" class="form-control" th:value="${ruleName.json}" placeholder="Json">
+          <div th:if="${json}">
+            <p th:text="${json}"  style="color: rgb(206, 37, 37)"></p>
+          </div>
+      </div>
+      <div class="form-group">
+        <label for="formGroupExampleInput2">Template</label>
+        <input type="text" name="template" class="form-control" th:value="${ruleName.template}" placeholder="Template">
+        <div th:if="${template}">
+          <p th:text="${template}"  style="color: rgb(206, 37, 37)"></p>
+        </div>
+    </div>
+      <a class="btn btn-danger" href="/ruleName/list" role="button">Cancel</a>
+      <button type="submit" class="btn btn-primary">Update Rule Name</button>
+  </form>
+</div>
+</body>
+</html>
