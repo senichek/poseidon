@@ -148,7 +148,7 @@ public class BidListServiceImplTest {
     @Test
     public void deleteTest() throws Exception {
         BidList bidList = new BidList();
-        bidList.setBidListId(1);
+        bidList.setBidListId(null);
         bidList.setAccount("Test account 1");
         bidList.setType("Test type 1");
         bidList.setBidQuantity(20.0);

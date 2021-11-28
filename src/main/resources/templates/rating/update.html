@@ -13,6 +13,7 @@
 		<h2>Update Raiting</h2>
     <form th:action="@{/rating/update/{id}(id=${rating.id})}" th:object="${rating}" method="post">
       <div class="form-group">
+        <input type="hidden" name="id" class="form-control" th:value=${rating.id}>
         <label for="formGroupExampleInput">Moody's Rating</label>
         <input type="text" name="moodysRating" class="form-control" th:value="${rating.moodysRating}" placeholder="Moody's Rating">
         <div th:if="${moodysRating}">

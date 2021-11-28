@@ -167,7 +167,7 @@ public class RuleNameServiceImplTest {
 
     @Test
     public void deleteTest() throws Exception {
-        expected.setId(1);
+        expected.setId(null);
         expected.setName("Name");
         expected.setDescription("Descr");
         expected.setJson("Json");

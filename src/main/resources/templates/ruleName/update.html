@@ -13,6 +13,7 @@
 		<h2>Update Rule Name</h2>
     <form th:action="@{/ruleName/update/{id}(id=${ruleName.id})}" th:object="${ruleName}" method="post">
       <div class="form-group">
+        <input type="hidden" name="id" class="form-control" th:value=${ruleName.id}>
         <label for="formGroupExampleInput">Name</label>
         <input type="text" name="name" class="form-control" th:value="${ruleName.name}" placeholder="Name">
         <div th:if="${name}">

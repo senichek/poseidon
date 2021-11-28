@@ -124,6 +124,7 @@ public class CurvePointServiceImplTest {
 
     @Test
     public void deleteTest() throws Exception {
+        expected.setId(null);
         expected.setCurveId(5);
         expected.setTerm(15.0);
         expected.setValue(20.0);

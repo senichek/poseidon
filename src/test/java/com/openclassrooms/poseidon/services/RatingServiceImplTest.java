@@ -141,6 +141,7 @@ public class RatingServiceImplTest {
 
     @Test
     public void deleteTest() throws Exception {
+        expected.setId(null);
         expected.setMoodysRating("Good");
         expected.setSandPRating("Good");
         expected.setFitchRating("Good");

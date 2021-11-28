@@ -33,11 +33,11 @@ CREATE TABLE BidList (
 );
 
 CREATE TABLE Trade (
-  TradeId tinyint(4) NOT NULL AUTO_INCREMENT,
+  trade_id tinyint(4) NOT NULL AUTO_INCREMENT,
   account VARCHAR(30) NOT NULL,
   type VARCHAR(30) NOT NULL,
-  buyQuantity DOUBLE,
-  sellQuantity DOUBLE,
+  buy_quantity DOUBLE,
+  sell_quantity DOUBLE,
   buyPrice DOUBLE ,
   sellPrice DOUBLE,
   tradeDate TIMESTAMP,
@@ -55,7 +55,7 @@ CREATE TABLE Trade (
   sourceListId VARCHAR(125),
   side VARCHAR(125),
 
-  PRIMARY KEY (TradeId)
+  PRIMARY KEY (trade_id)
 );
 
 CREATE TABLE CurvePoint (
