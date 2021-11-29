@@ -1,6 +1,5 @@
 package com.openclassrooms.poseidon.controllers;
 
-import com.openclassrooms.poseidon.domain.BidList;
 import com.openclassrooms.poseidon.security.UserPrincipalDetailsService;
 import com.openclassrooms.poseidon.services.BidListService;
 
