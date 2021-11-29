@@ -25,7 +25,7 @@ public class UserServiceImpl implements UserService {
     public User create(User usr) throws Exception {
         User exists = userRepository.findByUsername(usr.getUsername());
         if (exists != null) {
-            throw new Exception("This Username is taken. Choose a different one.");
+            return null;
         }
         if (usr.getUsername() == null || usr.getUsername().isEmpty()) {
             throw new Exception("Username is empty or null.");
@@ -60,7 +60,7 @@ public class UserServiceImpl implements UserService {
             if (!usr.getUsername().equals(toUpdate.getUsername())) {
                 User exists = userRepository.findByUsername(usr.getUsername());
                 if(exists != null) {
-                    throw new Exception("This Username is taken. Choose a different one.");
+                    return null;
                 } else {
                     toUpdate.setUsername(usr.getUsername());
                 }

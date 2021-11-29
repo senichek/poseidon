@@ -2,17 +2,15 @@ package com.openclassrooms.poseidon.services;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-
-import com.openclassrooms.poseidon.domain.RuleName;
 import com.openclassrooms.poseidon.domain.User;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.security.test.context.support.WithUserDetails;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.annotation.DirtiesContext.ClassMode;
 
@@ -69,8 +67,7 @@ public class UserServiceImplTest {
         assertTrue(exception.getMessage().contains("Password is empty or null."));
 
         expected.setUsername("Admin");
-        exception = assertThrows(Exception.class, () -> userService.create(expected));
-        assertTrue(exception.getMessage().contains("This Username is taken. Choose a different one."));
+        assertNull(userService.create(expected));
     }
 
     @Test
@@ -158,8 +155,8 @@ public class UserServiceImplTest {
         // Admin exists in DB, we cannot use this name again.
         expected.setUsername("Admin");
         expected.setRole("ADMIN");
-        exception = assertThrows(Exception.class, () -> userService.update(expected));
-        assertTrue(exception.getMessage().contains("This Username is taken. Choose a different one."));
+        expected.setUsername("Admin");
+        assertNull(userService.update(expected));
     }
 
     @Test

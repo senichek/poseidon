@@ -48,8 +48,13 @@ public class UserController {
             }
             return "user/add";
         } else {
-            userService.create(user);
-            return "redirect:/users/list";
+            User usr = userService.create(user);
+            if (usr == null) {
+                model.addAttribute("userExists", "This username is taken. Please choose a different one.");
+                return "user/add";
+            } else {
+                return "redirect:/users/list";
+            }
         }
     }
 
@@ -74,8 +79,13 @@ public class UserController {
             }
             return "user/update";
         } else {
-            userService.update(user);
-            return "redirect:/users/list";
+            User usr = userService.update(user);
+            if (usr == null) {
+                model.addAttribute("userExists", "This username is taken. Please choose a different one.");
+                return "user/update";
+            } else {
+                return "redirect:/users/list";
+            }
         }
     }
 
