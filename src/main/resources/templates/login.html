@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	  xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8"/>
+<title>Home</title>
+<link rel="stylesheet" href="../../css/bootstrap.min.css" >
+<link rel="stylesheet" href="../../css/main.css" >
+</head>
+  <body>
+    <div class="login-div">
+      <div class="text-center"><img class="img-logo" th:src="@{/logo.png}" /></div>
+      <form th:action="@{/login}" method="post">
+        <div class="form-group">
+          <input
+            type="text"
+            class="form-control form-control-lg"
+            style="margin-bottom: 30px"
+            id="username"
+            name="username"
+            placeholder="Username" required
+          />
+        </div>
+        <div class="form-group">
+          <input
+            type="password"
+            class="form-control form-control-lg"
+            style="margin-bottom: 40px"
+            id="password"
+            name="password"
+            placeholder="Password" required
+          />
+        </div>
+        <div class="text-center" style="margin-top: 35px">
+          <button type="submit" class="btn btn-dark btn-lg">Login</button>
+        </div>
+        <div class="text-center" style="margin-top: 10px">
+          <a href="/registration" class="btn btn-link active" role="button" aria-pressed="true">Create Account</a>
+        </div>
+      </form>
+      <div class="text-center">
+        <p th:text="${error}"  style="color: rgb(206, 37, 37)"></p>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8" />
+    <title>Home</title>
+    <link rel="stylesheet" href="../../css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../../css/main.css" />
+  </head>
+  <div class="login-div">
+    <div class="text-center">
+      <img class="img-logo" th:src="@{/logo.png}" />
+    </div>
+
+    <form th:action="@{/registration}" th:object="${user}" method="post">
+      <div class="form-group">
+        <div th:if="${username}">
+          <p th:text="${username}"  style="color: rgb(206, 37, 37)"></p>
+        </div>
+        <!-- The default ROLE is USER. You cannot register yourself as Admin, 
+        it's the Admins of the app who can assign you the role of ADMIN. -->
+        <input type="hidden" name="role" class="form-control" value="USER">
+        <input
+          type="text"
+          class="form-control form-control-lg"
+          style="margin-bottom: 30px"
+          id="username"
+          name="username"
+          placeholder="Username"
+        />
+      </div>
+      <div class="form-group">
+        <div th:if="${fullname}">
+          <p th:text="${fullname}"  style="color: rgb(206, 37, 37)"></p>
+        </div>
+        <input
+          type="text"
+          class="form-control form-control-lg"
+          style="margin-bottom: 30px"
+          id="fullname"
+          name="fullname"
+          placeholder="Full name"
+        />
+      </div>
+      <div class="form-group">
+        <div th:if="${rawPassword}">
+          <p th:text="${rawPassword}"  style="color: rgb(206, 37, 37)"></p>
+        </div>
+        <input
+          type="password"
+          class="form-control form-control-lg"
+          style="margin-bottom: 40px"
+          id="password"
+          name="rawPassword"
+          placeholder="Password"
+        />
+      </div>
+      <div class="text-center" style="margin-top: 50px">
+        <button type="submit" class="btn btn-dark btn-lg">Register</button>
+      </div>
+      <div class="text-center" style="margin-top: 10px">
+        <a
+          href="/login"
+          class="btn btn-link active"
+          role="button"
+          aria-pressed="true"
+          >Log in</a
+        >
+      </div>
+      <div th:if="${userExists}" class="text-center" style="color: green">
+        This account exists. You can log in.
+      </div>
+    </form>
+  </div>
+</html>

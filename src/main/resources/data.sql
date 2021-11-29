@@ -93,13 +93,13 @@ CREATE TABLE RuleName (
 
 CREATE TABLE Users (
   Id tinyint(4) NOT NULL AUTO_INCREMENT,
-  username VARCHAR(125),
+  username VARCHAR(125) UNIQUE,
   password VARCHAR(125),
   fullname VARCHAR(125),
   role VARCHAR(125),
 
   PRIMARY KEY (Id)
 );
-
-insert into Users(fullname, username, password, role) values("Administrator", "admin", "pass111", "ADMIN");
-insert into Users(fullname, username, password, role) values("User", "user", "$2a$10$pBV8ILO/s/nao4wVnGLrh.sa/rnr5pDpbeC4E.KNzQWoy8obFZdaa", "USER");
+/* Passwords: Pass11111# */
+insert into Users(fullname, username, password, role) values("Administrator", "admin", "$2a$04$5TW5dw6rxH75Ze2vNafNKuxOK6U2qQY4aCPpDRLioinXW6bDAWtsi", "ADMIN");
+insert into Users(fullname, username, password, role) values("User", "user", "$2a$04$5TW5dw6rxH75Ze2vNafNKuxOK6U2qQY4aCPpDRLioinXW6bDAWtsi", "USER");

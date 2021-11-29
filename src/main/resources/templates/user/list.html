@@ -19,34 +19,32 @@
 		</div>
 		<div class="col-6 text-right">
 			Logged in user: <b th:inline="text"  class="user"> [[${#httpServletRequest.remoteUser}]] </b>
-			<form th:action="@{/app-logout}" method="POST">
+			<form th:action="@{/logout}" method="POST">
 				<input type="submit" value="Logout"/>
 			</form>
 		</div>
 	</div>
-	<div class="row"><h2>Rating List</h2></div>
+	<div class="row"><h2>User List</h2></div>
 	<div class="row">
-		<a href="/rating/add" class="btn btn-primary btn-sm">Add New</a>
+		<a href="/users/add" class="btn btn-primary btn-sm">Add New</a>
 		<table class="table table-bordered">
 			<thead>
 				<tr>
-					<th>Id</th>
-					<th>Moody's Rating</th>
-					<th>Sand&P Rating</th>
-					<th>Fitch Rating</th>
-					<th>Order Number</th>
+					<th>User ID</th>
+					<th>Username</th>
+					<th>Fullname</th>
+					<th>Role</th>
 					<th>Action</th>
 				</tr>
 			</thead>
 			<tbody>
-				<tr th:each="rating: ${ratings}">
-				  <td th:text="${rating.id}">
-				  <td th:text="${rating.moodysRating}">
-				  <td th:text="${rating.sandPRating}">
-				  <td th:text="${rating.fitchRating}">
-				  <td th:text="${rating.orderNumber}">
-				  <td> <a th:href="@{/rating/update/{pathParam}(pathParam=${rating.id})}" class="btn btn-link" role="button" aria-pressed="true">Edit</a> |  
-					   <a th:href="@{/rating/delete/{pathParam}(pathParam=${rating.id})}" class="btn btn-link" role="button" aria-pressed="true">Delete</a>
+				<tr th:each="user: ${users}">
+				  <td th:text="${user.id}">
+				  <td th:text="${user.username}">
+				  <td th:text="${user.fullname}">
+				  <td th:text="${user.role}">
+				  <td> <a th:href="@{/users/update/{pathParam}(pathParam=${user.id})}" class="btn btn-link" role="button" aria-pressed="true">Edit</a> |  
+					   <a th:href="@{/users/delete/{pathParam}(pathParam=${user.id})}" class="btn btn-link" role="button" aria-pressed="true">Delete</a>
 				  </td>
 			  </tr>
 			  </tbody>
