@@ -23,6 +23,10 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User create(User usr) throws Exception {
+        User exists = userRepository.findByUsername(usr.getUsername());
+        if (exists != null) {
+            throw new Exception("This Username is taken. Choose a different one.");
+        }
         if (usr.getUsername() == null || usr.getUsername().isEmpty()) {
             throw new Exception("Username is empty or null.");
         } else if (usr.getFullname() == null || usr.getFullname().isEmpty()) {
@@ -54,7 +58,12 @@ public class UserServiceImpl implements UserService {
         }
         else {
             if (!usr.getUsername().equals(toUpdate.getUsername())) {
-                toUpdate.setUsername(usr.getUsername());
+                User exists = userRepository.findByUsername(usr.getUsername());
+                if(exists != null) {
+                    throw new Exception("This Username is taken. Choose a different one.");
+                } else {
+                    toUpdate.setUsername(usr.getUsername());
+                }
             }
             if (!usr.getFullname().equals(toUpdate.getFullname())) {
                 toUpdate.setFullname(usr.getFullname());

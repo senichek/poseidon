@@ -26,6 +26,8 @@ public class UserController {
     }
 
     // TODO удалить неиспользуемый параметр и в других контроллерах тоже.
+    // Добавить хендлер эксепшенов
+    // TODO добавить no permisson page
     @GetMapping("/users/add")
     public String addTrade(User user) {
         return "user/add";

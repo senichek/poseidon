@@ -67,6 +67,10 @@ public class UserServiceImplTest {
         expected.setRawPassword("");
         exception = assertThrows(Exception.class, () -> userService.create(expected));
         assertTrue(exception.getMessage().contains("Password is empty or null."));
+
+        expected.setUsername("Admin");
+        exception = assertThrows(Exception.class, () -> userService.create(expected));
+        assertTrue(exception.getMessage().contains("This Username is taken. Choose a different one."));
     }
 
     @Test
@@ -150,6 +154,12 @@ public class UserServiceImplTest {
         expected.setRole("");
         exception = assertThrows(Exception.class, () -> userService.update(expected));
         assertTrue(exception.getMessage().contains("Role is empty or null."));
+
+        // Admin exists in DB, we cannot use this name again.
+        expected.setUsername("Admin");
+        expected.setRole("ADMIN");
+        exception = assertThrows(Exception.class, () -> userService.update(expected));
+        assertTrue(exception.getMessage().contains("This Username is taken. Choose a different one."));
     }
 
     @Test
