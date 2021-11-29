@@ -25,7 +25,6 @@ public class UserController {
         return "user/list";
     }
 
-    // TODO удалить неиспользуемый параметр и в других контроллерах тоже.
     @GetMapping("/users/add")
     public String addUser(User user) {
         return "user/add";
