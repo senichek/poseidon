@@ -65,4 +65,9 @@ public class MainController {
             }
         }  
     }
+
+    @GetMapping(value = "/accessDenied")
+    public String accessDenied(){
+        return "accessDenied";
+    }
 }

@@ -29,14 +29,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .authorizeRequests()
                 .antMatchers("/login").permitAll()
-                .antMatchers("/bidList/**", "/curvePoint/**", "/rating/**", "/ruleName/**", "/trade/**", "/users/**").authenticated()
-               // .antMatchers("/bidList/**", "/curvePoint/**", "/rating/**", "/ruleName/**", "/trade/**", "/user/**").permitAll()
+                .antMatchers("/users/**").hasRole("ADMIN")
+                .antMatchers("/bidList/**", "/curvePoint/**", "/rating/**", "/ruleName/**", "/trade/**").authenticated()
                 .and()
                 .formLogin()
                 .loginPage("/login") //custom login page, login view must be also returned by controller
                 .successForwardUrl("/home") //there should be postMapping on the redirect page
                 .failureUrl("/login?error=true")
                 .permitAll()
+                .and()
+                .exceptionHandling().accessDeniedPage("/accessDenied")
                 .and()
                 .csrf().disable()
                 .logout()
