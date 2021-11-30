@@ -1,9 +1,7 @@
 package com.openclassrooms.poseidon.controllers;
 
-import com.openclassrooms.poseidon.domain.CurvePoint;
 import com.openclassrooms.poseidon.domain.User;
 import com.openclassrooms.poseidon.security.UserPrincipalDetailsService;
-import com.openclassrooms.poseidon.services.CurvePointService;
 import com.openclassrooms.poseidon.services.UserService;
 
 import org.junit.jupiter.api.Test;
