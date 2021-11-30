@@ -102,4 +102,4 @@ CREATE TABLE Users (
 );
 /* Passwords: Pass11111# */
 insert into Users(fullname, username, password, role) values("Administrator", "admin", "$2a$04$5TW5dw6rxH75Ze2vNafNKuxOK6U2qQY4aCPpDRLioinXW6bDAWtsi", "ADMIN");
-insert into Users(fullname, username, password, role) values("User", "user", "$2a$04$5TW5dw6rxH75Ze2vNafNKuxOK6U2qQY4aCPpDRLioinXW6bDAWtsi", "USER");
+insert into Users(fullname, username, password, role) values("User", "user", "$2a$04$nJR81Eb1gUDbqf9thQaCfuMhFPoswJvs6alrXA47.BjDqZdwhoIf2", "USER");
