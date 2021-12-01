@@ -1,6 +1,7 @@
 package com.openclassrooms.poseidon.controllers;
 
 import com.openclassrooms.poseidon.domain.Rating;
+import com.openclassrooms.poseidon.security.CustomOAuth2UserService;
 import com.openclassrooms.poseidon.security.UserPrincipalDetailsService;
 import com.openclassrooms.poseidon.services.RatingService;
 
@@ -28,6 +29,9 @@ public class RatingControllerTest {
 
     @MockBean
     private UserPrincipalDetailsService userPrincipalDetailsService;
+
+    @MockBean
+    private CustomOAuth2UserService oAuth2UserService;
 
     @Test
     @WithMockUser(username = "Admin", password = "Pass11111#")

@@ -1,6 +1,7 @@
 package com.openclassrooms.poseidon.controllers;
 
 import com.openclassrooms.poseidon.domain.User;
+import com.openclassrooms.poseidon.security.CustomOAuth2UserService;
 import com.openclassrooms.poseidon.security.UserPrincipalDetailsService;
 import com.openclassrooms.poseidon.services.UserService;
 
@@ -28,6 +29,9 @@ public class MainControllerTest {
 
     @MockBean
     private UserPrincipalDetailsService userPrincipalDetailsService;
+
+    @MockBean
+    private CustomOAuth2UserService oAuth2UserService;
 
     @Test
     public void showHomeTest() throws Exception {

@@ -1,5 +1,7 @@
 package com.openclassrooms.poseidon.controllers;
 
+import com.openclassrooms.poseidon.domain.BidList;
+import com.openclassrooms.poseidon.security.CustomOAuth2UserService;
 import com.openclassrooms.poseidon.security.UserPrincipalDetailsService;
 import com.openclassrooms.poseidon.services.BidListService;
 
@@ -11,6 +13,8 @@ import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.web.servlet.MockMvc;
 
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
@@ -25,6 +29,9 @@ public class BidListControllerTest {
 
     @MockBean
     private UserPrincipalDetailsService userPrincipalDetailsService;
+
+    @MockBean
+    private CustomOAuth2UserService oAuth2UserService;
 
     @Test
     @WithMockUser(username = "Admin", password = "Pass11111#")
@@ -86,6 +93,19 @@ public class BidListControllerTest {
         mockMvc.perform(get("/bidList/delete/1"))
                 .andExpect(status().is3xxRedirection())
                 .andExpect(view().name("redirect:/bidList/list"))
+                .andDo(print());
+    }
+
+    @Test
+    @WithMockUser(username = "Admin", password = "Pass11111#")
+    public void showUpdateFormTest() throws Exception {
+        BidList bidList = new BidList();
+
+        when(bidListService.getById(any(Integer.class))).thenReturn(bidList);
+
+        mockMvc.perform(get("/bidList/update/1"))
+                .andExpect(status().isOk())
+                .andExpect(view().name("bidList/update"))
                 .andDo(print());
     }
 }
